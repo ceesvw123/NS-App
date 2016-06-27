@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- ng-app is een 'directive'. Directives vertellen Angular dat je een bepaald gedrag wilt toevoegen
+ met ng-app vertellen we welke 'app' dit is en zo koppelen we alle instellingen van md2App
+ -->
+<html ng-app="md2App">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+        <title>Voorbeeld Mediacollege</title>
+        <link rel="stylesheet" href="style/css/default.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+    <!-- met de ng-controller directive koppelen we een container aan een controller
+    met een controller geven we de 'view' toegang tot de 'model'
+    -->
+        <div class="stationsList" ng-controller="StationsController as stations">
+            {{stations.map}}
+            <ui-gmap-google-map center='stations.map.center' zoom='stations.map.zoom' bounds="map.bounds"></ui-gmap-google-map>
+            <!--<div class="newStation">
+                <input type="text" placeholder="naam" ng-model="students.newStudent.name">
+                <input type="text" placeholder="leeftijd" ng-model="students.newStudent.age">
+                <div class="newStation-submit button" ng-click="students.createStudent()">Leerling toevoegen</div>
+            </div>
+-->
+
+
+
+
+            <div class="stationsList">
+                <div>Er zijn {{stations.allStations.length}} stations in deze array</div>
+                <input type="text" placeholder="Doorzoek de lijst" ng-model="stations.searchQuery">
+                <div ng-click="stations.searchQuery='cee'">filter op station</div>
+                <div class="stationsList-row animatedCSS" ng-class="{active:stations.currentStation==currentStation}" ng-click="stations.setStation(currentStation)" ng-repeat="currentStation in stations.allStations | filter:stations.searchQuery | orderBy: '-name'">
+                    {{currentStation.name}}
+                </div>
+            </div>
+
+            <div class="stationDetails animatedCSS" ng-if="stations.currentStation">
+                <div>De geselecteerde stations is: {{stations.currentStation.name}}</div>
+                <div>Zijn/haar leeftijd is: {{stations.currentStation.age}}</div>
+            </div>
+
+
+
+        </div>
+        <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="lib/angular-google-maps.min.js"></script>
+        <script src="lib/angular-simple-logger.js"></script>
+        <script src="lib/lodash.min.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/controllers/students.controller.js"></script>
+        <script src="app/services/students.service.js"></script>
+    </body>
+</html>

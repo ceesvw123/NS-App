@@ -1,0 +1,97 @@
+input, .stationsList-row {
+  width:400px;
+  padding:5px;
+  box-sizing: border-box;
+}
+
+.stationsList {
+  margin: 10px 0px;
+}
+
+.stationsList-row {
+  color:black;
+  background: lightgray;
+  border-bottom: 1px dashed white;
+  width: 50%;
+}
+@media screen and (max-width: 480px) {
+  .stationsList-row {
+    width: 100%;
+  }
+}
+
+.stationsList-row.ng-leave.ng-leave-active,
+.stationsList-row.ng-move,
+.stationsList-row.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.stationsList-row.ng-leave,
+.stationsList-row.ng-move.ng-move-active,
+.stationsList-row.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:30px;
+}
+
+.stationsList-row.active {
+  color: #fac51a;
+  margin-left: 10px;
+  background-color: #003082;
+}
+
+.newStation {
+  margin:10px 0px;
+  border:1px solid black;
+  padding: 5px;
+}
+
+.newStation-submit {
+  padding:5px;
+  background: black;
+  color: white;
+  margin: 5px 0px;
+}
+
+.button {
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.stationDetails {
+  width: 500px;
+  height:100px;
+  border:1px solid black;
+  padding:5px;
+}
+
+.stationDetails.ng-enter,
+.stationDetails.ng-leave.ng-leave-active {
+  opacity:0;
+  -ms-transform: scale(0.99); /* IE 9 */
+  -webkit-transform: scale(0.99); /* Safari */
+  transform: scale(0.99);
+}
+
+.stationDetails.ng-leave,
+.stationDetails.ng-enter.ng-enter-active {
+  opacity:1;
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari */
+  transform: scale(1);
+}
+
+.animatedCSS {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.angular-google-map-container {
+  height: 400px;
+}
+.angular-google-map-container { height: 400px; }
